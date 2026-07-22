@@ -1,0 +1,78 @@
+[workspace]
+members = [
+  "lti",
+  "lti-launch",
+  "lti-spec",
+]
+resolver = "3"
+
+[workspace.dependencies]
+
+# #########################################
+# HTTP Framework — Axum
+# needed by launch
+# #########################################
+axum = { version = "0.8.4", features = ["macros"] }
+axum-extra = { version = "0.12", features = ["cookie", "typed-routing"] }
+
+# #########################################
+# Handles Dates, Time, and Timezones.
+# Integrates with many other crates.
+# #########################################
+chrono = "0.4.42"
+
+# #########################################
+# Ensure proper language tags are used with locales
+# Used by: spec
+# #########################################
+oxilangtag = { version = "0.1.5", features = ["serde"] }
+
+# #########################################
+# Fixed precision decimals for maxscore on LineItem
+# #########################################
+rust_decimal = { version = "1.40.0", features = ["serde-float"] }
+
+# #########################################
+# Format conversion
+# serde (ser)ializes and (de)serializes structs.
+# #########################################
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.141"
+serde_jwt = { git = "https://github.com/Ameelio/serde_jwt.git", rev = "77ddce62a089ecf880908c591d92023dc0e2b888", features = ["debug"]}
+serde_qs = { version = "0.15", features = ["axum"] }
+
+# #########################################
+# Provides a macro to ease error handling
+# #########################################
+thiserror = "2.0.18"
+
+# #########################################
+# Instrumentation and Logging
+# #########################################
+tracing = "0.1"
+
+# #########################################
+# Universal Unique Identifier
+# v4 - unique random hexadecimal values
+# v7 - uses timesptamp
+# needed by spec
+# #########################################
+uuid = { version = "1.22.0", features = ["v4", "v7"] }
+
+# #########################################
+# Handles url parsing.
+# #########################################
+url = { version = "2.5.4", features = ["serde"] }
+
+# #########################################
+# OpenAPI Spec generator.
+# might be used for error_response in spec
+# #########################################
+utoipa = { version = "5.5.0", features = ["axum_extras", "url"] }
+
+# #########################################
+# Security
+# zero out data when out of scope.
+# needee by spec
+# #########################################
+zeroize = { version = "1.8.2", features = ["serde"] }

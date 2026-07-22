@@ -1,0 +1,13 @@
+[package]
+name = "lti"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+axum = [
+  "dep:lti-launch"
+]
+
+[dependencies]
+lti-launch = { path = "../lti-launch", optional = true }
+lti-spec = { path = "../lti-spec"}

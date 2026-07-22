@@ -1,0 +1,34 @@
+[package]
+name = "lti-spec"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chrono.workspace = true
+
+# Proper language tags
+oxilangtag.workspace = true
+
+# Fixed precision decimals for maxscore on LineItem
+rust_decimal.workspace = true
+
+# Convert between many formats and structs.
+serde.workspace = true
+serde_json.workspace = true
+serde_jwt.workspace = true
+serde_qs.workspace = true
+
+# Error handling
+thiserror.workspace = true
+
+# Handles URL parsing
+url.workspace = true
+
+# For UUID V7 Random Identifiers
+uuid.workspace = true
+
+# Zeros out data when it leaves scope.
+zeroize.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt"]}
