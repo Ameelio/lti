@@ -1,6 +1,7 @@
 [workspace]
 members = [
   "lti",
+  "lti-claims",
   "lti-launch",
   "lti-spec",
 ]
@@ -28,6 +29,12 @@ chrono = "0.4.42"
 oxilangtag = { version = "0.1.5", features = ["serde"] }
 
 # #########################################
+# HTTP Client
+# Used by lti-claims
+# #########################################
+reqwest = { version = "0.13.2", default-features = false, features = ["charset", "form", "hickory-dns", "http2", "json", "rustls"] }
+
+# #########################################
 # Fixed precision decimals for maxscore on LineItem
 # #########################################
 rust_decimal = { version = "1.40.0", features = ["serde-float"] }
@@ -45,6 +52,12 @@ serde_qs = { version = "0.15", features = ["axum"] }
 # Provides a macro to ease error handling
 # #########################################
 thiserror = "2.0.18"
+
+# #########################################
+# HTTP Service Framework
+# Used by: lti-claims
+# #########################################
+tower = { version = "0.5.3" }
 
 # #########################################
 # Instrumentation and Logging
