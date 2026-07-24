@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use serde::{Deserialize, Serialize};
 
 use crate::lti::claims::prelude::*;
@@ -8,7 +6,7 @@ use crate::oidc::user_claims::UserClaims;
 use crate::prelude::AgsEndpoint;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub struct DeepLinkingRequest {
+pub struct DeepLinkingRequest<C = CustomParams> {
     #[serde(flatten)]
     pub auth: AuthClaims,
 
@@ -19,7 +17,7 @@ pub struct DeepLinkingRequest {
     pub deployment_id: Box<str>,
 
     #[serde(default, flatten)]
-    pub options: DeepLinkingRequestOptions,
+    pub options: DeepLinkingRequestOptions<C>,
 
     #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/roles")]
     pub roles: Box<[Role]>,
@@ -29,7 +27,7 @@ pub struct DeepLinkingRequest {
 }
 
 #[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
-pub struct DeepLinkingRequestOptions {
+pub struct DeepLinkingRequestOptions<C = CustomParams> {
     #[serde(rename = "https://purl.imsglobal.org/spec/lti-ags/claim/endpoint")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub ags_endpoint: Option<AgsEndpoint>,
@@ -40,7 +38,7 @@ pub struct DeepLinkingRequestOptions {
 
     #[serde(rename = "http://imsglobal.org/custom ")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub custom: Option<HashMap<Box<str>, Box<str>>>,
+    pub custom: Option<C>,
 
     #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/launch_presentation")]
     #[serde(default, skip_serializing_if = "Option::is_none")]

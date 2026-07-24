@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use serde::{Deserialize, Serialize};
 use url::Url;
 
@@ -9,15 +7,15 @@ use crate::oidc::user_claims::UserClaims;
 use crate::prelude::AgsEndpoint;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub struct ResourceLinkRequest {
+pub struct ResourceLinkRequest<C = CustomParams> {
     #[serde(flatten)]
     pub auth: AuthClaims,
 
     #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/deployment_id")]
     pub deployment_id: Box<str>,
 
-    #[serde(flatten)]
-    pub options: ResourceLinkRequestOptions,
+    #[serde(default, flatten)]
+    pub options: ResourceLinkRequestOptions<C>,
 
     #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/resource_link")]
     pub resource_link: ResourceLink,
@@ -36,7 +34,7 @@ pub struct ResourceLinkRequest {
 }
 
 #[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
-pub struct ResourceLinkRequestOptions {
+pub struct ResourceLinkRequestOptions<C = CustomParams> {
     #[serde(rename = "https://purl.imsglobal.org/spec/lti-ags/claim/endpoint")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub ags_endpoint: Option<AgsEndpoint>,
@@ -47,7 +45,7 @@ pub struct ResourceLinkRequestOptions {
 
     #[serde(rename = "http://imsglobal.org/custom ")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub custom: Option<HashMap<Box<str>, Box<str>>>,
+    pub custom: Option<C>,
 
     #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/launch_presentation")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
