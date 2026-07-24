@@ -44,7 +44,7 @@ where
     }
 }
 
-impl Authenticatable for DeepLinkingRequest {
+impl<C> Authenticatable for DeepLinkingRequest<C> {
     fn audience(&self) -> &OneOrMore {
         &self.auth.audience
     }
@@ -72,7 +72,7 @@ impl Authenticatable for DeepLinkingRequest {
     }
 }
 
-impl Authenticatable for ResourceLinkRequest {
+impl<C> Authenticatable for ResourceLinkRequest<C> {
     fn audience(&self) -> &OneOrMore {
         &self.auth.audience
     }
