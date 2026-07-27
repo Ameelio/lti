@@ -26,8 +26,10 @@ where
     let csrf: LaunchCsrf = state.csrf();
 
     let redirect: Redirect = {
+        let issuer = Url::parse(&form.issuer).map_err(|_| Error::InvalidIssuerUrl)?;
+
         let client: LaunchClient = state
-            .fetch_client(&form.client_id, &form.issuer)
+            .fetch_client(&form.client_id, issuer)
             .await
             .map_err(|source| Error::UnableToFetchClient { source })?;
 
@@ -83,6 +85,8 @@ where
 
 #[derive(Debug, Error)]
 pub enum Error<S: LaunchState> {
+    #[error("issuer url is invalid")]
+    InvalidIssuerUrl,
     #[error("unable to fetch client, {source}")]
     UnableToFetchClient { source: S::Error },
     #[error("unable to build redirect, {source}")]

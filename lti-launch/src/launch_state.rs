@@ -11,8 +11,8 @@ pub trait LaunchState: Clone + fmt::Debug {
 
     fn fetch_client(
         &self,
-        client_id: impl AsRef<str>,
-        issuer: impl AsRef<str>,
+        client_id: &str,
+        issuer: Url,
     ) -> impl Future<Output = Result<LaunchClient, Self::Error>>;
 
     fn redirect_urls(&self) -> &UrlSet;
