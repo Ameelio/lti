@@ -1041,6 +1041,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "json_web_key"
+version = "0.1.0"
+source = "git+https://github.com/Ameelio/json_web_key.git?rev=732da090b7b77d1cf900c69e5b9cac41d1ad25d2#732da090b7b77d1cf900c69e5b9cac41d1ad25d2"
+dependencies = [
+ "base64ct",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.189"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1088,6 +1098,7 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "chrono",
+ "json_web_key",
  "lti-spec",
  "reqwest",
  "serde",

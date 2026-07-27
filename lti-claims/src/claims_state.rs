@@ -1,5 +1,6 @@
 use crate::lms_client::LmsClient;
 use axum::http::request::Parts;
+use json_web_key::jwk::JsonWebKeySet;
 use serde_jwt::jws::Jws;
 
 pub trait ClaimsState: std::fmt::Debug {
@@ -21,7 +22,7 @@ pub trait ClaimsState: std::fmt::Debug {
     fn validate_signature(
         &self,
         key_id: &str,
-        keys: serde_json::Value,
+        keys: JsonWebKeySet,
         signature: Jws,
     ) -> Result<(), Box<dyn std::error::Error>>;
 }
