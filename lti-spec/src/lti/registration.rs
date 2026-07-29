@@ -8,6 +8,7 @@ use super::ToolConfiguration;
 use crate::domain::Domain;
 use crate::error::Error;
 use crate::lti::claims::canvas_privacy_level::CanvasPrivacyLevel;
+use crate::lti::claims::prelude::CustomParams;
 use crate::lti::{MessageConfig, Scope, ScopeList, ToolConfigurationOptions};
 use crate::oidc::user_claims::SupportedUserClaims;
 use crate::oidc::*;
@@ -123,6 +124,23 @@ impl RegistrationRequestJson {
 impl<'a> RegistrationRequestBuilder<'a> {
     pub fn add_contact(mut self, value: &'a str) -> Self {
         self.contacts.push(value);
+
+        self
+    }
+
+    pub fn add_custom_param(
+        mut self,
+        name: impl Into<Box<str>>,
+        mapping: impl Into<Box<str>>,
+    ) -> Self {
+        let mut params: CustomParams = self
+            .tool_config_options
+            .custom_parameters
+            .unwrap_or_default();
+
+        params.insert(name.into(), mapping.into());
+
+        self.tool_config_options.custom_parameters = Some(params);
 
         self
     }
