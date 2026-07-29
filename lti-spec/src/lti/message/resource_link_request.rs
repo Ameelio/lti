@@ -43,7 +43,7 @@ pub struct ResourceLinkRequestOptions<C = CustomParams> {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub context: Option<Context>,
 
-    #[serde(rename = "http://purl.imsglobal.org/spec/lti/claim/custom")]
+    #[serde(rename = "https://purl.imsglobal.org/spec/lti/claim/custom")]
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub custom: Option<C>,
 
