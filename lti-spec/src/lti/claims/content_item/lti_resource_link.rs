@@ -1,10 +1,9 @@
-use std::collections::HashMap;
-
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use url::Url;
 
 use crate::lti::LineItem;
+use crate::lti::claims::prelude::CustomParams;
 use crate::util::SanitizedHtml;
 
 use super::icon::Icon;
@@ -27,7 +26,7 @@ pub struct LtiResourceLinkOptions {
     /// Map of custom parameters, the parameter keys must be included
     /// in the request payload.
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub custom: Option<HashMap<Box<str>, Box<str>>>,
+    pub custom: Option<CustomParams>,
 
     /// html fragment to embed the resource into, must be sanitized.
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -70,4 +69,24 @@ pub struct TimeWindow {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "startDateTime")]
     pub start: Option<DateTime<Utc>>,
+}
+
+impl LtiResourceLinkOptions {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn add_custom_param(
+        mut self,
+        name: impl Into<Box<str>>,
+        mapping: impl Into<Box<str>>,
+    ) -> Self {
+        let mut params: CustomParams = self.custom.unwrap_or_default();
+
+        params.insert(name.into(), mapping.into());
+
+        self.custom = Some(params);
+
+        self
+    }
 }
