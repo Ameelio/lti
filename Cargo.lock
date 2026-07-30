@@ -1041,9 +1041,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "json_web_key"
+name = "json-web-key"
 version = "0.1.0"
-source = "git+https://github.com/Ameelio/json_web_key.git?rev=732da090b7b77d1cf900c69e5b9cac41d1ad25d2#732da090b7b77d1cf900c69e5b9cac41d1ad25d2"
+source = "git+https://github.com/Ameelio/json-web-key.git?rev=464d2a89e58ed63d0efa0a9cf3852b621fc06839#464d2a89e58ed63d0efa0a9cf3852b621fc06839"
 dependencies = [
  "base64ct",
  "serde",
@@ -1098,7 +1098,7 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "chrono",
- "json_web_key",
+ "json-web-key",
  "lti-spec",
  "reqwest",
  "serde",
