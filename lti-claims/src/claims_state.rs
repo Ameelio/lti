@@ -1,7 +1,7 @@
 use crate::lms_client::LmsClient;
 use axum::http::request::Parts;
 use json_web_key::jwk::JsonWebKeySet;
-use serde_jwt::jws::Jws;
+use json_web_tolkien::jws::Jws;
 
 pub trait ClaimsState: std::fmt::Debug {
     fn fetch_client(

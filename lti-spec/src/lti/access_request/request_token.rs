@@ -1,6 +1,6 @@
 use chrono::{DateTime, TimeDelta, Utc};
+use json_web_tolkien::util::epoch::UtcDateTime;
 use serde::{Deserialize, Serialize};
-use serde_jwt::util::epoch::UtcDateTime;
 use url::Url;
 
 use crate::oidc::Jti;

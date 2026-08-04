@@ -24,10 +24,17 @@ chrono = "0.4.42"
 
 # #########################################
 # Our own crate that provides the structure
-# and conversions to JWS objects per the IETF
+# and conversions to JWKS objects per the IETF
 # spec.
 # #########################################
-json-web-key = { git = "https://github.com/Ameelio/json-web-key.git", rev = "464d2a89e58ed63d0efa0a9cf3852b621fc06839" }
+json-web-key = "0.1.1"
+
+# #########################################
+# Our own crate that provides the structure
+# and conversions to JWT and JWS objects per
+# the IETF spec.
+# #########################################
+json-web-tolkien = "0.2.0"
 
 # #########################################
 # Ensure proper language tags are used with locales
@@ -52,7 +59,6 @@ rust_decimal = { version = "1.40.0", features = ["serde-float"] }
 # #########################################
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.141"
-serde_jwt = { git = "https://github.com/Ameelio/serde_jwt.git", rev = "77ddce62a089ecf880908c591d92023dc0e2b888", features = ["debug"]}
 serde_qs = { version = "0.15", features = ["axum"] }
 
 

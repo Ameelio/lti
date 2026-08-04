@@ -13,10 +13,10 @@ where
 {
     let now = Utc::now();
 
-    if let Some(azp) = auth.authorized_party() {
-        if azp != lms_client.client_id.as_ref() {
-            return Err(Error::ClientNotAnAzp);
-        }
+    if let Some(azp) = auth.authorized_party()
+        && azp != lms_client.client_id.as_ref()
+    {
+        return Err(Error::ClientNotAnAzp);
     }
 
     if !auth

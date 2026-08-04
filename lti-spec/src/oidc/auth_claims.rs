@@ -1,8 +1,8 @@
 use std::fmt;
 
+use json_web_tolkien::util::OneOrMore;
+use json_web_tolkien::util::epoch::UtcDateTime;
 use serde::{Deserialize, Serialize};
-use serde_jwt::util::epoch::UtcDateTime;
-use serde_jwt::util::OneOrMore;
 
 /// These are the standard claims used in OIDC json web tokens that are for
 /// identifying the sender, verifying the token is fresh, and protecting from duplication.

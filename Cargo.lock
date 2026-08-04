@@ -1042,12 +1042,26 @@ dependencies = [
 
 [[package]]
 name = "json-web-key"
-version = "0.1.0"
-source = "git+https://github.com/Ameelio/json-web-key.git?rev=464d2a89e58ed63d0efa0a9cf3852b621fc06839#464d2a89e58ed63d0efa0a9cf3852b621fc06839"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ab6b82d3d6c86a3508851eda32eafd688f5ef25bf1e6a3234b835d40ddd029db"
 dependencies = [
  "base64ct",
  "serde",
  "serde_json",
+]
+
+[[package]]
+name = "json-web-tolkien"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bedb8475f6c55fed8359403c1c7232a8a0fba42a07f59e7db00e525692a2582a"
+dependencies = [
+ "base64ct",
+ "chrono",
+ "serde",
+ "serde_json",
+ "thiserror",
 ]
 
 [[package]]
@@ -1085,7 +1099,7 @@ checksum = "112b39cec0b298b6c1999fee3e31427f74f676e4cb9879ed1a121b43661a4154"
 
 [[package]]
 name = "lti"
-version = "0.3.0"
+version = "0.3.0-alpha.1"
 dependencies = [
  "lti-claims",
  "lti-launch",
@@ -1099,11 +1113,11 @@ dependencies = [
  "axum",
  "chrono",
  "json-web-key",
+ "json-web-tolkien",
  "lti-spec",
  "reqwest",
  "serde",
  "serde_json",
- "serde_jwt",
  "thiserror",
  "tower",
  "tracing",
@@ -1127,11 +1141,11 @@ name = "lti-spec"
 version = "0.2.0"
 dependencies = [
  "chrono",
+ "json-web-tolkien",
  "oxilangtag",
  "rust_decimal",
  "serde",
  "serde_json",
- "serde_jwt",
  "serde_qs",
  "thiserror",
  "tokio",
@@ -1828,19 +1842,6 @@ dependencies = [
  "serde",
  "serde_core",
  "zmij",
-]
-
-[[package]]
-name = "serde_jwt"
-version = "0.1.0"
-source = "git+https://github.com/Ameelio/serde_jwt.git?rev=77ddce62a089ecf880908c591d92023dc0e2b888#77ddce62a089ecf880908c591d92023dc0e2b888"
-dependencies = [
- "base64ct",
- "chrono",
- "serde",
- "serde_json",
- "thiserror",
- "tracing",
 ]
 
 [[package]]

@@ -15,7 +15,7 @@ rust_decimal.workspace = true
 # Convert between many formats and structs.
 serde.workspace = true
 serde_json.workspace = true
-serde_jwt.workspace = true
+json-web-tolkien.workspace = true
 serde_qs.workspace = true
 
 # Error handling

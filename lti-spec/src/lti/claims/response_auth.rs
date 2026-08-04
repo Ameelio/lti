@@ -1,8 +1,8 @@
 use std::fmt;
 
 use chrono::{DateTime, TimeDelta, Utc};
+use json_web_tolkien::util::epoch::UtcDateTime;
 use serde::{Deserialize, Serialize, ser::SerializeStruct};
-use serde_jwt::util::epoch::UtcDateTime;
 
 /// When sending response JWTs with LTI
 /// the client_id is the aud, azp, and iss claim

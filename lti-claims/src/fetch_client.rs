@@ -1,5 +1,5 @@
+use json_web_tolkien::util::OneOrMore;
 use serde::Deserialize;
-use serde_jwt::util::OneOrMore;
 use tracing::instrument;
 use url::Url;
 

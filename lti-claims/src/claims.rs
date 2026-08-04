@@ -5,8 +5,8 @@ use axum::Form;
 use axum::body::Body;
 use axum::extract::{FromRequest, Request};
 use axum::http::request::Parts;
+use json_web_tolkien::prelude::*;
 use serde::{Deserialize, Serialize};
-use serde_jwt::prelude::*;
 use tracing::instrument;
 
 use crate::CsrfResult;

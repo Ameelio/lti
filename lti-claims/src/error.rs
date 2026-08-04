@@ -63,7 +63,7 @@ pub enum Error {
     #[error("unable to parse json web token, {source}")]
     UnableToParseJwt {
         #[from]
-        source: serde_jwt::error::Error,
+        source: json_web_tolkien::error::Error,
     },
     #[error("an unexpected error occured when fetching from cache, {source}")]
     UnexpectedCacheError {

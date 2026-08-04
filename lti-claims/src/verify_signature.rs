@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use json_web_key::jwk::JsonWebKeySet;
-use serde_jwt::jws::Jws;
+use json_web_tolkien::jws::Jws;
 use tracing::instrument;
 
 use crate::ClaimsState;

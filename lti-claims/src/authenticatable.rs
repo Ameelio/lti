@@ -1,8 +1,8 @@
+use json_web_tolkien::jwt::Jwt;
+use json_web_tolkien::util::OneOrMore;
+use json_web_tolkien::util::epoch::UtcDateTime;
 use lti_spec::lti::{DeepLinkingRequest, ResourceLinkRequest, SubmissionReviewRequest};
 use serde::{Deserialize, Serialize};
-use serde_jwt::jwt::Jwt;
-use serde_jwt::util::OneOrMore;
-use serde_jwt::util::epoch::UtcDateTime;
 
 use crate::claims::Claims;
 
@@ -50,9 +50,7 @@ impl<C> Authenticatable for DeepLinkingRequest<C> {
     }
 
     fn authorized_party(&self) -> Option<&str> {
-        (&self.auth.authorized_party)
-            .as_ref()
-            .map(|x: &Box<str>| x.as_ref())
+        (self.auth.authorized_party).as_ref().map(AsRef::as_ref)
     }
 
     fn expired_at(&self) -> UtcDateTime {
@@ -78,9 +76,7 @@ impl<C> Authenticatable for ResourceLinkRequest<C> {
     }
 
     fn authorized_party(&self) -> Option<&str> {
-        (&self.auth.authorized_party)
-            .as_ref()
-            .map(|x: &Box<str>| x.as_ref())
+        (self.auth.authorized_party).as_ref().map(AsRef::as_ref)
     }
 
     fn expired_at(&self) -> UtcDateTime {
@@ -106,9 +102,7 @@ impl Authenticatable for SubmissionReviewRequest {
     }
 
     fn authorized_party(&self) -> Option<&str> {
-        (&self.auth.authorized_party)
-            .as_ref()
-            .map(|x: &Box<str>| x.as_ref())
+        (self.auth.authorized_party).as_ref().map(AsRef::as_ref)
     }
 
     fn expired_at(&self) -> UtcDateTime {
