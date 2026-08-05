@@ -2,10 +2,10 @@
 name = "lti-launch"
 description = "Axum LTI Launch Handler"
 edition = "2024"
-homepage = "https://github.com/Ameelio/lti/"
+homepage = "https://github.com/Ameelio/learning-tools-interoperability/"
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/Ameelio/lti/"
+repository = "https://github.com/Ameelio/learning-tools-interoperability/"
 version = "0.1.0"
 
 [dependencies]

@@ -659,6 +659,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "learning-tools-interoperability"
+version = "0.1.0-alpha.1"
+dependencies = [
+ "lti-launch",
+ "lti-spec",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.189"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -675,14 +683,6 @@ name = "log"
 version = "0.4.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
-
-[[package]]
-name = "lti"
-version = "0.1.0-alpha.1"
-dependencies = [
- "lti-launch",
- "lti-spec",
-]
 
 [[package]]
 name = "lti-launch"
