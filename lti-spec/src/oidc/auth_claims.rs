@@ -1,7 +1,8 @@
 use std::fmt;
 
-use json_web_tolkien::util::OneOrMore;
-use json_web_tolkien::util::epoch::UtcDateTime;
+use crate::util::OneOrMore;
+use crate::util::UtcDateTime;
+
 use serde::{Deserialize, Serialize};
 
 /// These are the standard claims used in OIDC json web tokens that are for

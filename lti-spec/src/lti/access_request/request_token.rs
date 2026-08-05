@@ -1,9 +1,9 @@
 use chrono::{DateTime, TimeDelta, Utc};
-use json_web_tolkien::util::epoch::UtcDateTime;
 use serde::{Deserialize, Serialize};
 use url::Url;
 
 use crate::oidc::Jti;
+use crate::util::UtcDateTime;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct RequestToken {

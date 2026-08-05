@@ -1,15 +1,13 @@
 [package]
 name = "lti"
-version = "0.3.0-alpha.1"
+version = "0.3.0-alpha.2"
 edition = "2024"
 
 [features]
 axum = [
-  "dep:lti-claims",
   "dep:lti-launch"
 ]
 
 [dependencies]
-lti-claims = { path = "../lti-claims", optional = true }
 lti-launch = { path = "../lti-launch", optional = true }
 lti-spec = { path = "../lti-spec"}

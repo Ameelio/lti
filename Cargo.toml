@@ -1,7 +1,6 @@
 [workspace]
 members = [
   "lti",
-  "lti-claims",
   "lti-launch",
   "lti-spec",
 ]
@@ -20,33 +19,13 @@ axum-extra = { version = "0.12", features = ["cookie", "typed-routing"] }
 # Handles Dates, Time, and Timezones.
 # Integrates with many other crates.
 # #########################################
-chrono = "0.4.42"
-
-# #########################################
-# Our own crate that provides the structure
-# and conversions to JWKS objects per the IETF
-# spec.
-# #########################################
-json-web-key = "0.1.1"
-
-# #########################################
-# Our own crate that provides the structure
-# and conversions to JWT and JWS objects per
-# the IETF spec.
-# #########################################
-json-web-tolkien = "0.2.0"
+chrono = { version = "0.4.42", features = ["serde"] }
 
 # #########################################
 # Ensure proper language tags are used with locales
 # Used by: spec
 # #########################################
 oxilangtag = { version = "0.1.5", features = ["serde"] }
-
-# #########################################
-# HTTP Client
-# Used by lti-claims
-# #########################################
-reqwest = { version = "0.13.2", default-features = false, features = ["charset", "form", "hickory-dns", "http2", "json", "rustls"] }
 
 # #########################################
 # Fixed precision decimals for maxscore on LineItem
@@ -61,17 +40,10 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.141"
 serde_qs = { version = "0.15", features = ["axum"] }
 
-
 # #########################################
 # Provides a macro to ease error handling
 # #########################################
 thiserror = "2.0.18"
-
-# #########################################
-# HTTP Service Framework
-# Used by: lti-claims
-# #########################################
-tower = { version = "0.5.3" }
 
 # #########################################
 # Instrumentation and Logging
@@ -90,12 +62,6 @@ uuid = { version = "1.22.0", features = ["v4", "v7"] }
 # Handles url parsing.
 # #########################################
 url = { version = "2.5.4", features = ["serde"] }
-
-# #########################################
-# OpenAPI Spec generator.
-# might be used for error_response in spec
-# #########################################
-utoipa = { version = "5.5.0", features = ["axum_extras", "url"] }
 
 # #########################################
 # Security
