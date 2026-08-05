@@ -1,7 +1,12 @@
 [package]
 name = "lti-launch"
-version = "0.1.0"
+description = "Axum LTI Launch Handler"
 edition = "2024"
+homepage = "https://github.com/Ameelio/lti/"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Ameelio/lti/"
+version = "0.1.0"
 
 [dependencies]
 axum.workspace = true

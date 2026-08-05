@@ -1,7 +1,12 @@
 [package]
 name = "lti"
-version = "0.3.0-alpha.2"
+description = "Tools and Structs for the Learning Tools Interoperability (LTI)"
 edition = "2024"
+homepage = "https://github.com/Ameelio/lti/"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Ameelio/lti/"
+version = "0.1.0-alpha.1"
 
 [features]
 axum = [

@@ -678,7 +678,7 @@ checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
 
 [[package]]
 name = "lti"
-version = "0.3.0-alpha.2"
+version = "0.1.0-alpha.1"
 dependencies = [
  "lti-launch",
  "lti-spec",
@@ -698,7 +698,7 @@ dependencies = [
 
 [[package]]
 name = "lti-spec"
-version = "0.2.0"
+version = "0.1.0"
 dependencies = [
  "chrono",
  "oxilangtag",
