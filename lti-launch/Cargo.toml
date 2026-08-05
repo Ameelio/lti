@@ -11,7 +11,7 @@ version = "0.1.0"
 [dependencies]
 axum.workspace = true
 axum-extra.workspace = true
-lti-spec = { path = "../lti-spec"}
+lti-spec = { version = "0.1.0", path = "../lti-spec"}
 thiserror.workspace = true
 tracing.workspace = true
 url.workspace = true

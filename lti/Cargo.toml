@@ -14,5 +14,5 @@ axum = [
 ]
 
 [dependencies]
-lti-launch = { path = "../lti-launch", optional = true }
-lti-spec = { path = "../lti-spec"}
+lti-launch = { version = "0.1.0", path = "../lti-launch", optional = true }
+lti-spec = { version = "0.1.0", path = "../lti-spec"}
